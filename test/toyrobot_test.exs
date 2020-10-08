@@ -15,19 +15,19 @@ defmodule TOYROBOTTest do
     assert TOYROBOT.place([7,-33,'west']) == %{ :x => 0, :y => 0 , :f => 'north'}
   end
 
-  test "calling move within the grid will be accepted"
+  test "calling move within the grid will be accepted 1" do
     assert TOYROBOT.move( %{:x => 0,:y => 0,:f => 'north'} ) == %{ :x => 0, :y => 1 , :f => 'north'}
   end
 
-  test "calling move within the grid will be accepted"
+  test "calling move within the grid will be accepted 2" do 
     assert TOYROBOT.move( %{:x => 4,:y => 2,:f => 'north'} ) == %{:x => 4,:y => 3,:f => 'north'}
   end
 
-  test "calling move resulting the robot to be outside the grid will be ignored"
+  test "calling move resulting the robot to be outside the grid will be ignored 1" do 
     assert TOYROBOT.move( %{:x => 4,:y => 2,:f => 'east'} ) == %{:x => 4,:y => 2,:f => 'east'}
   end
 
-  test "calling move resulting the robot to be outside the grid will be ignored"
+  test "calling move resulting the robot to be outside the grid will be ignored 2" do
     assert TOYROBOT.move( %{:x => 0,:y => 4,:f => 'west'} ) == %{:x => 0,:y => 4,:f => 'west'}
   end
 
