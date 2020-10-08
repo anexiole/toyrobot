@@ -35,13 +35,6 @@ end
 
 
 
-
-## need to figure these out
-
-defp direction_ok([facing]) when facing == 'north' or facing == 'south' or facing =='west' or facing =='east' do
-    1
-end
-
 defp direction_ok(_), do: 0
 
 
