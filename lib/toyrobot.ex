@@ -22,7 +22,7 @@ end
 
 def place([x, y,facing]) when (x >= 0 and x <= 4 and y >= 0 and y <= 4
        and (facing == 'north' or facing == 'south' or facing =='west' or facing =='east') )
-do 
+do
   %{ :x => x, :y => y, :f => facing}
 end
 
