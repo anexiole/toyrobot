@@ -17,11 +17,15 @@ defmodule TOYROBOT do
   end
 
 def place() do
-    %{ :x => 0, :y => 0 , :f => :north}
+    init_position
 end
 
-def place( [x,y,f]), do: (
-    %{ :x => x, :y => y, :f => f}
+defp init_position() do
+  %{ :x => 0, :y => 0 , :f => :north}
+end
+
+def place( [x,y,facing]), do: (
+    %{ :x => x, :y => y, :f => facing}
 )
 
 
