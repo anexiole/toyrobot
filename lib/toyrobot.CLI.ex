@@ -1,16 +1,14 @@
 defmodule ToyRobot.CLI do
   def main(_args) do
-    IO.puts("Welcome to the Toy Robot simulator!")
+    IO.puts("Toy Robot...\n")
     get_directive()
   end
-
-
 
 def get_directive() do
     f = IO.gets(': ')
     |> String.trim
     |> String.downcase
-    |> String.split(" ")
+    |> String.split(' ')
     |> execute
   end
 
