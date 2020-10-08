@@ -20,6 +20,10 @@ def place() do
     %{ :x => 0, :y => 0 , :f => :north}
 end
 
+def place( [x,y,f]), do: (
+    %{ :x => x, :y => y, :f => f}
+)
+
 
 
 
