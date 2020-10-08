@@ -13,8 +13,9 @@ def get_directive() do
   end
 
 def execute(something) do
-    IO.inspect(something)
     get_directive()
 end
+
+
 
 end

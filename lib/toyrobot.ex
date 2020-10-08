@@ -15,4 +15,12 @@ defmodule TOYROBOT do
   def hello do
     :world
   end
+
+def place() do
+    %{ :x => 0, :y => 0 , :f => :north}
+end
+
+
+
+
 end
