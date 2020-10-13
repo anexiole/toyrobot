@@ -26,9 +26,41 @@ do
   %{ :x => x, :y => y, :f => facing}
 end
 
-def move([x, y,facing])
+def move(%{ :x => x, :y => y, :f => facing} ) when ( x ==4  and  facing == 'east' )
 do
+  %{ :x => x, :y => y, :f => facing}
+end
 
+def move(%{ :x => x, :y => y, :f => facing}) when ( x ==0  and  facing == 'west' )
+do
+  %{ :x => x, :y => y, :f => facing}
+end
+
+def move(%{ :x => x, :y => y, :f => facing}) when ( y==0  and  facing == 'south' )
+do
+  %{ :x => x, :y => y, :f => facing}
+end
+
+def move(%{ :x => x, :y => y, :f => facing}) when ( y==4  and  facing == 'north' )
+do
+  %{ :x => x, :y => y, :f => facing}
+end
+
+def move(%{ :x => x, :y => y, :f => facing}) when ( x>= 0 and x<=4)
+do
+  case facing do
+     'north' ->
+        %{ :x => x, :y => y+1, :f => facing}
+
+     'south' ->
+        %{ :x => x, :y => y-1, :f => facing}
+
+     'east' ->
+        %{ :x => x+1, :y => y, :f => facing}
+
+     'west' ->
+        %{ :x => x-1, :y => y, :f => facing}        
+  end  
 end
 
 def place(_), do: init_position()
