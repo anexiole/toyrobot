@@ -26,6 +26,8 @@ do
   %{ :x => x, :y => y, :f => facing}
 end
 
+def place(_), do: init_position()
+
 def move(%{ :x => x, :y => y, :f => facing} ) when ( x ==4  and  facing == 'east' )
 do
   %{ :x => x, :y => y, :f => facing}
@@ -63,18 +65,12 @@ do
   end  
 end
 
-def place(_), do: init_position()
-
 defp init_position() do
   %{ :x => 0, :y => 0 , :f => 'north'}
 end
 
-
-
-defp direction_ok(_), do: 0
-
-
-
-
+def report (%{ :x => x, :y => y, :f => facing}) do
+  %{ :x => x, :y => y, :f => facing}
+end
 
 end

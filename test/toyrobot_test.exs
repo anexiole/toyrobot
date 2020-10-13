@@ -31,5 +31,11 @@ defmodule TOYROBOTTest do
     assert TOYROBOT.move( %{:x => 0,:y => 4,:f => 'west'} ) == %{:x => 0,:y => 4,:f => 'west'}
   end
 
-
+  test "calling report will reveal the current position 1" do
+    assert TOYROBOT.report( %{:x => 0,:y => 4,:f => 'west'} ) == %{:x => 0,:y => 4,:f => 'west'}
+  end
+  
+    test "calling report will reveal the current position 2" do
+    assert TOYROBOT.report( %{:x => 2,:y => 0,:f => 'north'} ) == %{:x => 2,:y => 0,:f => 'north'}
+  end
 end
