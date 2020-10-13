@@ -73,4 +73,17 @@ def report (%{ :x => x, :y => y, :f => facing}) do
   %{ :x => x, :y => y, :f => facing}
 end
 
+def left(%{ :x => x, :y => y, :f => facing}) when ( ( x==0  and  facing == 'north')
+             or ( y==4  and  facing == 'east')    )
+do
+  %{ :x => x, :y => y, :f => facing}
+end
+
+# TODO: left hand side - define by the direction
+def left(%{ :x => x, :y => y, :f => facing})
+do
+  %{ :x => x-1, :y => y, :f => facing}
+end
+
+
 end
