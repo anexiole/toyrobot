@@ -74,6 +74,7 @@ def report (%{ :x => x, :y => y, :f => facing}) do
 end
 
 def left(%{ :x => x, :y => y, :f => facing}) when ( ( x==0  and  facing == 'north')
+            or (x==4 and facing == 'south')
              or ( y==4  and  facing == 'east')    
              or (y==0 and facing == 'west')
              )
@@ -81,7 +82,6 @@ do
   %{ :x => x, :y => y, :f => facing}
 end
 
-# TODO: left hand side - define by the direction
 def left(%{ :x => x, :y => y, :f => facing})
 do
   case (facing) do
@@ -89,6 +89,25 @@ do
     'south' -> %{ :x => x+1, :y => y, :f => facing}
     'east' -> %{ :x => x, :y => y+1, :f => facing}
     'west' -> %{ :x => x, :y => y-1, :f => facing}
+  end
+end
+
+def right(%{ :x => x, :y => y, :f => facing}) when ( ( x==4  and  facing == 'north')
+          or (x==0 and facing == 'south')
+             or ( y==0  and  facing == 'east')    
+             or (y==4 and facing == 'west')
+             )
+do
+  %{ :x => x, :y => y, :f => facing}
+end
+
+def right(%{ :x => x, :y => y, :f => facing})
+do
+  case (facing) do
+    'north' -> %{ :x => x+1, :y => y, :f => facing}
+    'south' -> %{ :x => x-1, :y => y, :f => facing}
+    'east' -> %{ :x => x, :y => y-1, :f => facing}
+    'west' -> %{ :x => x, :y => y+1, :f => facing}
   end
 end
 
