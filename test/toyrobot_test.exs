@@ -35,7 +35,38 @@ defmodule TOYROBOTTest do
     assert TOYROBOT.report( %{:x => 0,:y => 4,:f => 'west'} ) == %{:x => 0,:y => 4,:f => 'west'}
   end
   
-    test "calling report will reveal the current position 2" do
+  test "calling report will reveal the current position 2" do
     assert TOYROBOT.report( %{:x => 2,:y => 0,:f => 'north'} ) == %{:x => 2,:y => 0,:f => 'north'}
   end
+
+  test "calling left when robot is on the top most y-pane and facing east will be ignored" do
+    assert TOYROBOT.left( %{:x => 2,:y => 4,:f => 'east'} ) == %{:x => 2,:y => 4,:f => 'east'}
+  end
+
+  test "calling left when robot is on the left most x-pane and facing north will be ignored" do
+    assert TOYROBOT.left( %{:x => 0,:y => 4,:f => 'north'} ) == %{:x => 0,:y => 4,:f => 'north'}
+  end
+
+  test "calling left when the robot is on the bottom most y-pane and facing west will be ignored" do
+    assert TOYROBOT.left( %{:x => 3,:y => 0,:f => 'west'} ) == %{:x => 3,:y => 0,:f => 'west'}
+  end
+
+
+  test "calling left when facing north" do
+    assert TOYROBOT.left( %{:x => 3,:y => 0,:f => 'north'} ) == %{:x => 2,:y => 0,:f => 'north'}
+  end
+
+   test "calling left when facing south" do
+    assert TOYROBOT.left( %{:x => 3,:y => 0,:f => 'south'} ) == %{:x => 4,:y => 0,:f => 'south'}
+  end 
+
+    test "calling left when facing east" do
+    assert TOYROBOT.left( %{:x => 3,:y => 1,:f => 'east'} ) == %{:x => 3,:y => 2,:f => 'east'}
+  end
+
+  test "calling left when facing west" do
+    assert TOYROBOT.left( %{:x => 3,:y => 1,:f => 'west'} ) == %{:x => 3,:y => 0,:f => 'west'}
+  end
+
+
 end
