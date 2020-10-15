@@ -87,8 +87,12 @@ defmodule TOYROBOTTest do
     assert TOYROBOT.right( %{:x => 0,:y => 3,:f => 'south'} ) == %{:x => 0,:y =>3,:f => 'west'}
   end
 
-  #test "dd right when facing west" do
-  #  assert TOYROBOT.place() |>TOYROBOT.right()  |>TOYROBOT.right() == %{:x => 3,:y => 2,:f => 'west'}
-  #end  
+  test "dd right when facing west" do
+    assert TOYROBOT.place() |>TOYROBOT.right()  |>TOYROBOT.right() == %{:x => 0,:y => 0,:f => 'south'}
+  end  
+
+    test "dddd right when facing west" do
+    assert TOYROBOT.place() |> TOYROBOT.move() |> TOYROBOT.move()  |>TOYROBOT.right()  |>TOYROBOT.left() |> TOYROBOT.move() == %{:x => 0,:y => 3,:f => 'north'}
+  end  
 
 end
