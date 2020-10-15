@@ -31,6 +31,22 @@ defmodule TOYROBOTTest do
     assert TOYROBOT.move( %{:x => 0,:y => 4,:f => 'west'} ) == %{:x => 0,:y => 4,:f => 'west'}
   end
 
+  test "calling move when the robot is in grid facing south will move the robot in grid" do
+    assert TOYROBOT.move( %{:x => 3,:y => 4,:f => 'south'} ) == %{:x => 3,:y =>3,:f => 'south'}
+  end
+
+  test "calling move when the robot is in grid facing north will move the robot in grid" do
+    assert TOYROBOT.move( %{:x => 2,:y => 1,:f => 'north'} ) == %{:x => 2,:y =>2,:f => 'north'}
+  end
+
+  test "calling move when the robot is in grid facing east will move the robot in grid" do
+    assert TOYROBOT.move( %{:x => 2,:y => 1,:f => 'east'} ) == %{:x => 3,:y =>1,:f => 'east'}
+  end
+
+  test "calling move when the robot is in grid facing west will move the robot in grid" do
+    assert TOYROBOT.move( %{:x => 2,:y => 1,:f => 'west'} ) == %{:x => 1,:y =>1,:f => 'west'}
+  end
+
   test "calling report will reveal the current position 1" do
     assert TOYROBOT.report( %{:x => 0,:y => 4,:f => 'west'} ) == %{:x => 0,:y => 4,:f => 'west'}
   end

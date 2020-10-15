@@ -48,23 +48,6 @@ do
   %{ :x => x, :y => y, :f => facing}
 end
 
-def move(%{ :x => x, :y => y, :f => facing}) when ( x>= 0 and x<=4)
-do
-  case facing do
-     'north' ->
-        %{ :x => x, :y => y+1, :f => facing}
-
-     'south' ->
-        %{ :x => x, :y => y-1, :f => facing}
-
-     'east' ->
-        %{ :x => x+1, :y => y, :f => facing}
-
-     'west' ->
-        %{ :x => x-1, :y => y, :f => facing}        
-  end  
-end
-
 defp init_position() do
   %{ :x => 0, :y => 0 , :f => 'north'}
 end
@@ -94,15 +77,23 @@ do
   end
 end
 
-
-def move(%{ :x => x, :y => y, :f => facing}) when ( ( x==4  and  facing == 'north')
-             or (x==0  and facing == 'south')
-             or ( y==0  and  facing == 'east')    
-             or (y==4 and facing == 'west')
-             )
+def move(%{ :x => x, :y => y, :f => facing }) when ( ( y==4  and  facing == 'north')
+             or (y==0  and facing == 'south')
+             or ( x==4  and  facing == 'east')    
+             or (x==0 and facing == 'west')
+)
 do
   %{ :x => x, :y => y, :f => facing}
 end
 
+def move(%{ :x => x, :y => y, :f => facing})
+do
+  case (facing) do
+    'north' -> %{ :x => x, :y => y+1, :f => facing}
+    'south' -> %{ :x => x, :y => y-1, :f => facing}
+    'east' -> %{ :x => x+1, :y => y, :f => facing}
+    'west' -> %{ :x => x-1, :y => y, :f => facing}
+  end
+end
 
 end
